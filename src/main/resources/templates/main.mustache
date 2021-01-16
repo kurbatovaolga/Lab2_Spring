@@ -1,0 +1,42 @@
+<html>
+<body>
+<div>
+    <form method="post">
+        <input type="text" name="personnelNumber" placeholder="Табельный номер" />
+        <input type="text" name="lastName" placeholder="Фамилия">
+        <input type="text" name="firstName" placeholder="Имя">
+        <input type="text" name="middleName" placeholder="Отчество">
+        <input type="text" name="age" placeholder="Возраст">
+        <input type="text" name="department" placeholder="№ Отдел" pattern="[0-9]{1,4}" required title="Only Numbers" >
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+<div>Список сотрудников</div>
+<form method="post" action="filter">
+    <input type="text" name="filter" placeholder="Введите фамилию">
+    <button type="submit">Найти</button>
+</form>
+<table>
+    <tr>
+        <th>Табельный номер</th>
+        <th>ФИО</th>
+        <th>Возраст</th>
+        <th>Отдел</th>
+    </tr>
+    {{#employees}}
+        <tr>
+
+            <td>{{personnelNumber}}</td>
+            <td>{{lastName}}
+                {{firstName}}
+                {{middleName}}</td>
+            <td>{{age}}</td>
+            <td>{{Department.name}}</td>
+
+        </tr>
+    {{/employees}}
+</table>
+</body>
+</html>
+
+
